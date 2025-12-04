@@ -103,7 +103,7 @@ describe('Limit Testing - Unique Flaky Tests Batch 2', () => {
   
   test('flaky_batch2_test1_db_connection', async () => {
     const pool = {
-      connections: 3,
+      connections: 4, // Increase connections to match the number of acquires
       acquire: async function() {
         await new Promise(r => setTimeout(r, Math.random() * 30));
         if (this.connections > 0) {
