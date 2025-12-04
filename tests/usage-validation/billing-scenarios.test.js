@@ -147,10 +147,10 @@ describe('Usage Validation - Edge Cases', () => {
 
   // Test 13: Date/time sensitivity
   test('time_sensitive_operation', () => {
-    const now = Date.now();
-    const isEvenSecond = Math.floor(now / 1000) % 2 === 0;
+    const fixedTime = 1609459200000; // Fixed timestamp (Jan 1, 2021, 00:00:00 GMT)
+    const isEvenSecond = Math.floor(fixedTime / 1000) % 2 === 0;
     
-    // Passes 50% of the time based on system clock
+    // Deterministic test based on fixed time
     expect(isEvenSecond).toBe(true);
   });
 
