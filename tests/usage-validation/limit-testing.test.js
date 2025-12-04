@@ -27,7 +27,7 @@ describe('Limit Testing - Unique Flaky Tests Batch 1', () => {
     cache.set('key', 'value');
     
     // Simulate cache expiry race
-    setTimeout(() => cache.delete('key'), Math.random() * 50);
+    setTimeout(() => cache.delete('key'), 50);
     await new Promise(r => setTimeout(r, 25));
     
     expect(cache.has('key')).toBe(true);
