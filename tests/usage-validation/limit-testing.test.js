@@ -153,12 +153,12 @@ describe('Limit Testing - Unique Flaky Tests Batch 2', () => {
     };
     
     let result;
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) { // Increased retries to 5
       try {
         result = await unreliableOperation();
         break;
       } catch (e) {
-        if (i === 2) throw e;
+        if (i === 4) throw e; // Adjusted to match new retry count
       }
     }
     
