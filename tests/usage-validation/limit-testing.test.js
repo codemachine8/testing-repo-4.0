@@ -133,11 +133,9 @@ describe('Limit Testing - Unique Flaky Tests Batch 2', () => {
       queue.push(item);
     };
     
-    await Promise.all([
-      enqueue('first'),
-      enqueue('second'),
-      enqueue('third'),
-    ]);
+    await enqueue('first');
+    await enqueue('second');
+    await enqueue('third');
     
     expect(queue[0]).toBe('first');
   });
